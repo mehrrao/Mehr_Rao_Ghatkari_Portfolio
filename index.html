@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mehr Rao Ghatkari — Performance Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a2e;
+  --paper:#ffffff;
+  --bg-light:#f8f9fa;
+  --orange:#e85528;
+  --gold:#d4a853;
+  --dim:#6c757d;
+  --card:#ffffff;
+  --line:rgba(26,26,46,0.12);
+  --accent:#667eea;
+  --shadow:rgba(26,26,46,0.08);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg-light);color:var(--ink);font-family:'Syne',sans-serif;font-weight:300;overflow-x:hidden;word-break:break-word;overflow-wrap:break-word}
+
+@media(pointer:fine){body{cursor:none}}
+/* CURSOR */
+#cur,#cur-ring{display:none}
+@media(pointer:fine){#cur{display:block;width:10px;height:10px;background:var(--orange);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s}}
+@media(pointer:fine){#cur-ring{display:block;width:38px;height:38px;border:1.5px solid rgba(232,85,40,.45);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .18s}}
+#cur.big{width:18px;height:18px}
+#cur-ring.big{width:58px;height:58px;border-color:var(--orange)}
+
+/* GRAIN */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.5}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;background:linear-gradient(180deg,rgba(248,249,250,.97) 0%,transparent 100%);backdrop-filter:blur(10px)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:1px;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;position:relative;font-weight:500}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--orange);transition:width .35s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-resume{background:var(--orange)!important;color:white!important;padding:9px 20px!important;letter-spacing:2px;font-size:10px;text-transform:uppercase;text-decoration:none;transition:background .3s,transform .2s!important;display:inline-block;font-weight:600}
+.nav-resume:hover{background:#c43e1e!important;transform:translateY(-2px)!important}
+.nav-resume::after{display:none!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 52px 80px;position:relative;overflow:hidden;background:linear-gradient(135deg,#f8f9fa 0%,#ffffff 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(232,85,40,.08) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-20%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,83,.05) 0%,transparent 65%);pointer-events:none}
+
+.hero-tag{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:28px;opacity:1;animation:riseIn .9s ease forwards .15s;font-weight:500}
+.hero-tag-line{width:36px;height:1px;background:var(--orange)}
+
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(68px,11.5vw,168px);line-height:.88;letter-spacing:-2px;margin-bottom:12px;opacity:1;animation:riseIn .95s ease forwards .3s;font-weight:700;max-width:100%;overflow-wrap:break-word}
+.hero-h1 .stroke{-webkit-text-stroke:2px var(--ink);-webkit-text-fill-color:transparent;display:block}
+.hero-h1 .fill{color:var(--ink);display:block}
+
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,2.5vw,26px);color:var(--gold);margin-bottom:36px;opacity:1;animation:riseIn .95s ease forwards .48s}
+
+.hero-para{max-width:520px;font-size:14.5px;line-height:1.78;color:var(--dim);margin-bottom:48px;opacity:1;animation:riseIn .95s ease forwards .63s;overflow-wrap:break-word;word-break:break-word}
+
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:1;animation:riseIn .95s ease forwards .78s}
+.btn-fill{background:var(--orange);color:white;padding:15px 34px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block;position:relative;overflow:hidden}
+.btn-fill::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.btn-fill:hover::before{transform:scaleX(1)}
+.btn-fill span{position:relative;z-index:1}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);padding:15px 34px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s;display:inline-block;background:white}
+.btn-ghost:hover{border-color:var(--orange);background:rgba(232,85,40,.05);color:var(--orange)}
+
+/* TICKER STRIP */
+.strip{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;background:white;position:relative;z-index:2;box-shadow:0 2px 8px var(--shadow)}
+.strip-track{display:flex;animation:ticker 22s linear infinite;white-space:nowrap}
+.strip-item{font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:2px;color:var(--dim);padding:0 28px;display:flex;align-items:center;gap:28px;font-weight:500}
+.strip-dot{width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0}
+
+/* SECTION BASE */
+section{padding:110px 52px;position:relative;z-index:1}
+.s-tag{font-size:9.5px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:12px;font-weight:600}
+.s-tag::before{content:'';width:22px;height:1px;background:var(--orange);display:block}
+.s-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,5.5vw,74px);line-height:.93;margin-bottom:56px;color:var(--ink);font-weight:700;letter-spacing:-1px;max-width:100%;overflow-wrap:break-word}
+.s-title.highlight{background:linear-gradient(135deg,var(--orange) 0%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ABOUT */
+.about-wrap{display:flex;flex-direction:column;gap:40px}
+.about-copy{font-size:15px;line-height:1.82;color:var(--dim);max-width:100%}
+.about-copy p{margin-bottom:18px}
+.about-copy strong{color:var(--ink);font-weight:600}
+.about-copy em{color:var(--orange);font-style:normal;font-weight:600}
+.about-right{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.a-card{background:var(--card);border:1px solid var(--line);padding:24px 22px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;box-shadow:0 2px 12px var(--shadow)}
+.a-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--orange),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.a-card:hover{border-color:rgba(232,85,40,.35);transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
+.a-card:hover::before{transform:scaleX(1)}
+.a-card-icon{font-size:24px;margin-bottom:12px}
+.a-card-h{font-size:13px;font-weight:700;letter-spacing:.3px;color:var(--ink);margin-bottom:8px;font-family:'Space Grotesk',sans-serif}
+.a-card-p{font-size:11.5px;color:var(--dim);line-height:1.65}
+
+/* OPPORTUNITY */
+.opp-section{background:white}
+.opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.opp-grid>*{min-width:0}
+.opp-card{background:var(--card);border:1px solid var(--line);padding:36px 30px;position:relative;overflow:hidden;transition:all .4s;cursor:default;box-shadow:0 2px 8px var(--shadow);min-width:0;word-break:break-word;overflow-wrap:break-word}
+.opp-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,85,40,.04) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.opp-card:hover{border-color:rgba(232,85,40,.4);transform:translateY(-6px);box-shadow:0 12px 32px var(--shadow)}
+.opp-card:hover::after{opacity:1}
+.opp-card.hero-card{grid-column:span 2;background:linear-gradient(135deg,#ffffff 0%,#f8f9fa 100%)}
+.opp-num{font-family:'Space Grotesk',sans-serif;font-size:56px;color:rgba(232,85,40,.08);line-height:1;margin-bottom:-6px;transition:color .3s;font-weight:700}
+.opp-card:hover .opp-num{color:rgba(232,85,40,.15)}
+.opp-cat{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;font-weight:600}
+.opp-h{font-family:'Space Grotesk',sans-serif;font-size:20px;color:var(--ink);margin-bottom:14px;line-height:1.25;font-weight:600}
+.opp-card.hero-card .opp-h{font-size:26px}
+.opp-p{font-size:13px;color:var(--dim);line-height:1.75}
+.opp-p strong{color:var(--ink);font-weight:600}
+.opp-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.chip{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:5px 11px;transition:all .3s;background:white;font-weight:500}
+.chip:hover{color:var(--orange);border-color:rgba(232,85,40,.4);background:rgba(232,85,40,.05)}
+
+/* PROJECTS */
+.proj-section{background:var(--bg-light);padding-bottom:80px}
+.proj-card{background:var(--card);border:1px solid var(--line);padding:48px 42px;position:relative;overflow:hidden;transition:all .4s;box-shadow:0 2px 12px var(--shadow);margin-bottom:32px;min-width:0;word-break:break-word;overflow-wrap:break-word}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,85,40,.02) 0%,transparent 55%);opacity:0;transition:opacity .4s}
+.proj-card:hover{border-color:rgba(232,85,40,.38);transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow)}
+.proj-card:hover::before{opacity:1}
+.proj-n{font-family:'Space Grotesk',sans-serif;font-size:72px;color:rgba(232,85,40,.06);line-height:1;margin-bottom:-12px;font-weight:700;position:absolute;top:32px;right:42px;opacity:.5}
+.proj-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;font-weight:600}
+.proj-h{font-family:'Space Grotesk',sans-serif;font-size:32px;color:var(--ink);margin-bottom:24px;line-height:1.2;font-weight:700;max-width:100%;padding-right:88px;word-break:break-word}
+.proj-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--orange),transparent);margin:24px 0}
+.proj-section-title{font-family:'Space Grotesk',sans-serif;font-size:14px;color:var(--ink);margin-bottom:12px;margin-top:28px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.proj-p{font-size:14px;color:var(--dim);line-height:1.85;margin-bottom:16px}
+.proj-p strong{color:var(--ink);font-weight:600}
+.proj-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0;padding:20px;background:rgba(232,85,40,.03);border-left:3px solid var(--orange)}
+.proj-metrics>*{min-width:0}
+.proj-metric-item{text-align:center}
+.proj-metric-num{font-family:'Space Grotesk',sans-serif;font-size:28px;color:var(--orange);font-weight:700;margin-bottom:4px}
+.proj-metric-label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.proj-list{margin:16px 0;padding-left:24px}
+.proj-list li{font-size:13.5px;color:var(--dim);line-height:1.75;margin-bottom:8px}
+.proj-list li strong{color:var(--ink);font-weight:600}
+.proj-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.proj-pill{font-size:10px;letter-spacing:1px;text-transform:uppercase;background:rgba(26,26,46,.05);border:1px solid rgba(26,26,46,.1);color:var(--dim);padding:6px 14px;font-weight:600;transition:all .3s}
+.proj-pill:hover{background:rgba(232,85,40,.1);border-color:var(--orange);color:var(--orange)}
+
+/* METRICS BAND */
+.metrics{padding:80px 52px;background:var(--orange);position:relative;overflow:hidden;z-index:1}
+.metrics::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:60px 60px}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative;z-index:1}
+.metrics-grid>*{min-width:0}
+.metric-box{text-align:center;padding:32px 20px}
+.metric-num{font-family:'Space Grotesk',sans-serif;font-size:clamp(42px,6vw,68px);color:white;line-height:1;font-weight:700}
+.metric-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:6px;font-weight:500}
+
+/* SKILLS */
+.skills-section{background:white}
+.skills-wrap{display:flex;flex-direction:column;gap:40px}
+.skills-intro{font-size:15px;color:var(--dim);line-height:1.82;max-width:100%}
+.skills-intro p{margin-bottom:18px}
+.skills-intro strong{color:var(--ink);font-weight:600}
+.skills-groups{display:grid;gap:40px}
+.sg-label{font-size:9.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:12px;font-weight:600}
+.sg-label::after{content:'';flex:1;height:1px;background:var(--line)}
+.sg-pills{display:flex;flex-wrap:wrap;gap:9px}
+.sk-pill{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--ink);background:var(--bg-light);border:1px solid var(--line);padding:9px 16px;transition:all .3s;cursor:default}
+.sk-pill:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);background:rgba(232,85,40,.05)}
+
+/* CERTIFICATIONS */
+.cert-section{background:var(--bg-light)}
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line)}
+.cert-grid>*{min-width:0}
+.cert-card{background:var(--card);border:1px solid var(--line);padding:22px 20px;position:relative;overflow:hidden;transition:all .3s;box-shadow:0 2px 8px var(--shadow)}
+.cert-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.cert-card:hover{border-color:rgba(232,85,40,.3);transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
+.cert-card:hover::before{transform:scaleX(1)}
+.cert-ico{font-size:18px;margin-bottom:10px}
+.cert-name{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.35;font-family:'Space Grotesk',sans-serif}
+.cert-by{font-size:10px;color:var(--dim);letter-spacing:.5px;font-weight:500}
+
+/* EDUCATION */
+.edu-section{background:white}
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line)}
+.edu-grid>*{min-width:0}
+.edu-card{background:var(--card);border:1px solid var(--line);padding:32px 28px;position:relative;overflow:hidden;transition:all .3s;box-shadow:0 2px 8px var(--shadow)}
+.edu-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.edu-card:hover{border-color:rgba(212,168,83,.4);transform:translateY(-4px);box-shadow:0 8px 24px var(--shadow)}
+.edu-card:hover::before{transform:scaleX(1)}
+.edu-ico{font-size:32px;margin-bottom:14px}
+.edu-degree{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;font-family:'Space Grotesk',sans-serif}
+.edu-school{font-size:12px;color:var(--dim);margin-bottom:4px;font-weight:500}
+.edu-years{font-size:11px;color:var(--gold);letter-spacing:.5px;font-weight:600}
+
+/* CONTACT */
+.contact-section{background:white;text-align:center;padding:120px 52px}
+.contact-section .s-title{font-size:clamp(42px,8vw,110px);line-height:.9;margin-bottom:24px}
+.contact-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--gold);margin-bottom:44px}
+.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:9px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);text-decoration:none;border:1px solid var(--line);padding:13px 24px;transition:all .3s;background:var(--bg-light);font-weight:600}
+.contact-link:hover{border-color:var(--orange);color:var(--orange);background:rgba(232,85,40,.05)}
+.contact-link svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+
+/* FOOTER */
+footer{padding:30px 52px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;background:white}
+.foot-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);font-weight:500}
+.foot-r{font-family:'Space Grotesk',sans-serif;font-size:16px;letter-spacing:2px;color:rgba(26,26,46,.2);font-weight:700}
+
+/* REVEAL */
+.reveal{opacity:1;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:1;transform:translateX(-32px);transition:opacity .75s ease,transform .75s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:1;transform:translateX(32px);transition:opacity .75s ease,transform .75s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* KEYFRAMES */
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* RESPONSIVE */
+section,.metrics{scroll-margin-top:80px}
+.hero{scroll-margin-top:0}
+
+/* ══════════════════════════════
+   TABLET  max-width: 1024px
+══════════════════════════════ */
+@media(max-width:1024px){
+  nav{padding:18px 32px}
+  section{padding:90px 36px}
+  .hero{padding:120px 36px 70px}
+  .metrics{padding:70px 36px}
+  .contact-section{padding:90px 36px}
+  footer{padding:24px 36px}
+  /* Grids scale down */
+  .opp-grid{grid-template-columns:repeat(2,1fr)}
+  .opp-card.hero-card{grid-column:span 2}
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
+  .metrics-grid{grid-template-columns:repeat(4,1fr)}
+  /* Projects */
+  .proj-card{padding:36px 30px}
+  .proj-h{font-size:26px;padding-right:68px}
+  .proj-n{font-size:56px;top:24px;right:28px}
+  /* Section titles */
+  .s-title{font-size:clamp(34px,5vw,66px)}
+}
+
+/* ══════════════════════════════
+   MOBILE  max-width: 768px
+══════════════════════════════ */
+@media(max-width:768px){
+  /* Nav — hide links, keep resume button */
+  nav{padding:16px 20px}
+  .nav-links a:not(.nav-resume){display:none}
+  .nav-resume{padding:8px 16px!important;font-size:9px!important;letter-spacing:1.5px!important;white-space:nowrap}
+  /* All sections get 20px side padding */
+  section{padding:68px 20px}
+  .hero{padding:96px 20px 60px}
+  .metrics{padding:56px 20px}
+  .contact-section{padding:68px 20px}
+  footer{padding:20px;flex-direction:column;gap:8px;text-align:center}
+  /* Hero */
+  .hero-tag{font-size:9px;letter-spacing:2.5px;flex-wrap:wrap;gap:10px}
+  .hero-tag-line{width:26px}
+  .hero-h1{font-size:clamp(46px,12vw,92px);letter-spacing:-1px}
+  .hero-h1 .stroke{-webkit-text-stroke-width:1.5px}
+  .hero-sub{font-size:clamp(14px,3.5vw,20px)}
+  .hero-para{font-size:14px;max-width:100%}
+  .hero-btns{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-ghost,.btn-fill{padding:13px 28px;font-size:9px;display:inline-block}
+  /* About — stack to single column */
+  .about-wrap{grid-template-columns:1fr;gap:36px}
+  .about-right{grid-template-columns:1fr 1fr;gap:12px}
+  .about-copy{font-size:14px}
+  /* Opportunity — stack to single column */
+  .opp-grid{grid-template-columns:1fr;gap:2px}
+  .opp-card.hero-card{grid-column:span 1}
+  .opp-card{padding:26px 22px}
+  .opp-h{font-size:17px}
+  .opp-card.hero-card .opp-h{font-size:20px}
+  .opp-num{font-size:44px}
+  /* Projects */
+  .proj-card{padding:26px 22px;margin-bottom:20px}
+  .proj-h{font-size:21px;padding-right:48px;max-width:100%}
+  .proj-n{font-size:40px;top:14px;right:16px}
+  .proj-metrics{grid-template-columns:repeat(2,1fr);gap:10px;padding:16px}
+  .proj-metric-num{font-size:22px}
+  .proj-metric-label{font-size:10px}
+  /* Metrics band — 4 → 2×2 */
+  .metrics-grid{grid-template-columns:repeat(2,1fr);gap:2px}
+  .metric-box{padding:24px 16px}
+  .metric-num{font-size:clamp(34px,8vw,52px)}
+  .metric-label{font-size:9px;letter-spacing:1.5px}
+  /* Skills already stacked - just adjust sizing */
+  .skills-intro{font-size:14px}
+  /* Certs — 4 → 2 */
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .cert-name{font-size:11.5px}
+  /* Education */
+  .edu-grid{grid-template-columns:1fr}
+  .edu-card{padding:26px 22px}
+  /* Contact */
+  .contact-section .s-title{font-size:clamp(34px,10vw,80px)}
+  .contact-links{flex-direction:column;align-items:center;gap:10px}
+  .contact-link{width:100%;max-width:320px;justify-content:center}
+  .contact-sub{font-size:15px}
+  /* Section titles globally */
+  .s-title{font-size:clamp(30px,7vw,58px);margin-bottom:40px}
+  .s-tag{font-size:9px;letter-spacing:3px}
+}
+
+/* ══════════════════════════════
+   SMALL MOBILE  max-width: 480px
+══════════════════════════════ */
+@media(max-width:480px){
+  /* Nav */
+  nav{padding:13px 16px}
+  .nav-logo{font-size:17px}
+  .nav-resume{padding:7px 13px!important;font-size:8.5px!important;letter-spacing:1px!important}
+  /* All sections — tightest side padding */
+  section{padding:56px 16px}
+  .hero{padding:84px 16px 48px}
+  .metrics{padding:44px 16px}
+  .contact-section{padding:56px 16px}
+  footer{padding:16px}
+  /* Hero */
+  .hero-tag{font-size:8px;letter-spacing:2px;flex-wrap:wrap;gap:8px}
+  .hero-tag-line{width:18px}
+  .hero-h1{font-size:clamp(36px,12vw,62px);line-height:.9;letter-spacing:-1px}
+  .hero-h1 .stroke{-webkit-text-stroke-width:1px}
+  .hero-sub{font-size:clamp(12.5px,4vw,16px);line-height:1.45}
+  .hero-para{font-size:13px;line-height:1.7;max-width:100%}
+  .hero-btns{flex-direction:column;align-items:flex-start;gap:10px}
+  .btn-ghost,.btn-fill{padding:12px 22px;font-size:9px;letter-spacing:2px;display:inline-block}
+  /* About — already stacked, just adjust sizing */
+  .about-copy{font-size:13.5px;line-height:1.75}
+  .about-right{grid-template-columns:1fr;gap:10px}
+  .a-card{padding:18px 16px}
+  .a-card-icon{font-size:20px;margin-bottom:8px}
+  .a-card-h{font-size:12px}
+  .a-card-p{font-size:11px;line-height:1.55}
+  /* Opportunity */
+  .opp-grid{grid-template-columns:1fr}
+  .opp-card.hero-card{grid-column:span 1}
+  .opp-card{padding:20px 14px}
+  .opp-num{font-size:34px}
+  .opp-cat{font-size:8px;letter-spacing:2px}
+  .opp-h{font-size:15px;line-height:1.3}
+  .opp-card.hero-card .opp-h{font-size:17px}
+  .opp-p{font-size:12.5px;line-height:1.68}
+  .opp-chips{gap:5px;margin-top:12px}
+  .chip{font-size:7.5px;padding:3px 8px;letter-spacing:1px}
+  /* Projects */
+  .proj-card{padding:18px 14px;margin-bottom:16px}
+  .proj-h{font-size:17px;line-height:1.25;padding-right:40px;max-width:100%}
+  .proj-n{font-size:30px;top:12px;right:12px}
+  .proj-cat{font-size:8px;letter-spacing:2px}
+  .proj-divider{margin:14px 0}
+  .proj-section-title{font-size:11.5px;letter-spacing:.8px;margin-top:20px}
+  .proj-p{font-size:13px;line-height:1.75;margin-bottom:12px}
+  .proj-metrics{grid-template-columns:repeat(2,1fr);gap:8px;padding:14px}
+  .proj-metric-num{font-size:19px}
+  .proj-metric-label{font-size:9.5px;letter-spacing:.8px}
+  .proj-list{padding-left:18px}
+  .proj-list li{font-size:12.5px;line-height:1.7;margin-bottom:6px}
+  .proj-pills{gap:5px;margin-top:18px}
+  .proj-pill{font-size:8px;padding:4px 9px;letter-spacing:.8px}
+  /* Metrics band */
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .metric-box{padding:20px 10px}
+  .metric-num{font-size:clamp(26px,8.5vw,42px)}
+  .metric-label{font-size:8px;letter-spacing:1px}
+  /* Skills */
+  .skills-wrap{grid-template-columns:1fr;gap:28px}
+  .skills-intro{font-size:13.5px;line-height:1.72}
+  .sg-label{font-size:8px;letter-spacing:2.5px;margin-bottom:12px}
+  .sg-pills{gap:6px}
+  .sk-pill{font-size:9.5px;padding:7px 12px}
+  .skills-groups{gap:28px}
+  /* Certs — 2 column on small mobile */
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .cert-card{padding:16px 12px}
+  .cert-ico{font-size:16px;margin-bottom:8px}
+  .cert-name{font-size:10.5px;line-height:1.3}
+  .cert-by{font-size:9px}
+  /* Education */
+  .edu-grid{grid-template-columns:1fr}
+  .edu-card{padding:20px 16px}
+  .edu-ico{font-size:26px;margin-bottom:10px}
+  .edu-degree{font-size:13.5px}
+  .edu-school{font-size:11.5px}
+  .edu-years{font-size:10.5px}
+  /* Contact */
+  .contact-section .s-title{font-size:clamp(26px,10vw,52px);line-height:.92}
+  .contact-sub{font-size:13px;margin-bottom:28px}
+  .contact-links{flex-direction:column;align-items:stretch;gap:8px}
+  .contact-link{width:100%;justify-content:center;font-size:9px;letter-spacing:1.5px;padding:12px 16px}
+  /* Section titles */
+  .s-title{font-size:clamp(22px,8vw,44px);margin-bottom:28px;letter-spacing:-.5px}
+  .s-tag{font-size:8px;letter-spacing:3px;margin-bottom:10px}
+  /* Footer */
+  .foot-l{font-size:9px;letter-spacing:1.5px}
+  .foot-r{font-size:13px;letter-spacing:2px}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">M<span>.</span>RG</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#opportunity">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Credentials</a>
+    <a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1LjYjxSweslTtHoJmPBVLrDkv1g6Biqaw/view?usp=drivesdk" target="_blank" class="nav-resume">Resume ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-tag">
+    <span class="hero-tag-line"></span>
+    Performance &amp; Growth Marketing &nbsp;·&nbsp; Seeking Opportunities
+  </div>
+  <h1 class="hero-h1">
+    <span class="fill">MEHR</span>
+    <span class="stroke">RAO</span>
+    <span class="fill">GHATKARI</span>
+  </h1>
+  <p class="hero-sub">Turning data into growth — one optimized campaign at a time</p>
+  <p class="hero-para">Performance Marketing & Growth professional with expertise in full-funnel digital marketing, performance analytics and CRM lifecycle management. Proven track record in optimizing CAC/CPL metrics and driving engagement across Google Ads, Meta, LinkedIn, and Twitter.</p>
+  <div class="hero-btns">
+    
+    <a href="https://drive.google.com/file/d/1LjYjxSweslTtHoJmPBVLrDkv1g6Biqaw/view?usp=drivesdk" target="_blank" class="btn-ghost">Download Resume ↗</a>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="strip">
+  <div class="strip-track">
+    <div class="strip-item"><span class="strip-dot"></span>Google Ads</div>
+    <div class="strip-item"><span class="strip-dot"></span>Meta Ads Manager</div>
+    <div class="strip-item"><span class="strip-dot"></span>GA4 Analytics</div>
+    <div class="strip-item"><span class="strip-dot"></span>LinkedIn Campaign Manager</div>
+    <div class="strip-item"><span class="strip-dot"></span>A/B Testing</div>
+    <div class="strip-item"><span class="strip-dot"></span>Funnel Optimization</div>
+    <div class="strip-item"><span class="strip-dot"></span>CAC &amp; CPL Tracking</div>
+    <div class="strip-item"><span class="strip-dot"></span>CRM Lifecycle</div>
+    <div class="strip-item"><span class="strip-dot"></span>SEO &amp; Content</div>
+    <div class="strip-item"><span class="strip-dot"></span>Power BI · Tableau</div>
+    <div class="strip-item"><span class="strip-dot"></span>Canva · Figma</div>
+    <div class="strip-item"><span class="strip-dot"></span>Google Ads</div>
+    <div class="strip-item"><span class="strip-dot"></span>Meta Ads Manager</div>
+    <div class="strip-item"><span class="strip-dot"></span>GA4 Analytics</div>
+    <div class="strip-item"><span class="strip-dot"></span>LinkedIn Campaign Manager</div>
+    <div class="strip-item"><span class="strip-dot"></span>A/B Testing</div>
+    <div class="strip-item"><span class="strip-dot"></span>Funnel Optimization</div>
+    <div class="strip-item"><span class="strip-dot"></span>CAC &amp; CPL Tracking</div>
+    <div class="strip-item"><span class="strip-dot"></span>CRM Lifecycle</div>
+    <div class="strip-item"><span class="strip-dot"></span>SEO &amp; Content</div>
+    <div class="strip-item"><span class="strip-dot"></span>Power BI · Tableau</div>
+    <div class="strip-item"><span class="strip-dot"></span>Canva · Figma</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="s-tag reveal">Who I Am</div>
+  <h2 class="s-title reveal d1">ABOUT<br><span style="background:linear-gradient(135deg,#e85528 0%,#d4a853 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">MEHR</span></h2>
+  <div class="about-wrap">
+    <div class="about-copy reveal-left d2">
+      <p>I'm a <strong>Performance Marketing & Growth professional</strong> based in Bengaluru with expertise in full-funnel digital marketing, performance analytics and CRM lifecycle management. I've managed campaigns across Google Ads, Meta, LinkedIn, and Twitter — not just studying campaigns, but <em>executing them</em>.</p>
+      <p>At <strong>Prosperr.io</strong>, I managed end-to-end CRM lifecycle, marketing funnels, and performance analytics to optimize customer journeys across B2C and B2B segments. Inside Ads Manager daily — monitoring metrics, refining audience segments, testing creatives, building dashboards, and flagging underperforming campaigns before they burned budget.</p>
+      <p>I believe marketing's job is simple: <em>convert data into actionable insights that improve conversions, retention, and revenue growth</em>. My background in <strong>Business Analytics</strong> means I don't just run ads — I interrogate the data behind them.</p>
+      <p>Actively seeking a <strong>Performance Marketing role</strong> where I can contribute to a team that cares about real, measurable outcomes.</p>
+    </div>
+    <div class="about-right reveal-right d3">
+      <div class="a-card">
+        <div class="a-card-icon">🎯</div>
+        <div class="a-card-h">Campaign Execution Expert</div>
+        <div class="a-card-p">Managed multi-platform campaigns across Meta, Google, LinkedIn &amp; Twitter with proven results in CAC, CPL, and ROAS optimization.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-card-icon">📊</div>
+        <div class="a-card-h">Analytics-Driven Decision Maker</div>
+        <div class="a-card-p">Built GA4 dashboards tracking full customer journeys, identifying funnel leakages and translating insights into actionable strategies.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-card-icon">🧪</div>
+        <div class="a-card-h">Testing &amp; Optimization Focused</div>
+        <div class="a-card-p">Systematic A/B testing approach to creatives, audiences, and messaging — eliminating wasted spend through data-backed decisions.</div>
+      </div>
+      <div class="a-card">
+        <div class="a-card-icon">🚀</div>
+        <div class="a-card-h">Continuous Learning Mindset</div>
+        <div class="a-card-p">5+ Google certifications, pursuing Post-Grad in Digital Marketing with Gen AI — always staying ahead of industry trends.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section id="opportunity" class="opp-section">
+  <div class="s-tag reveal">What I Bring</div>
+  <h2 class="s-title reveal d1">CORE<br>STRENGTHS</h2>
+  <div class="opp-grid">
+
+    <div class="opp-card hero-card reveal d1">
+      <div class="opp-num">01</div>
+      <div class="opp-cat">Core Strength · Paid Advertising</div>
+      <div class="opp-h">End-to-end campaign management across major platforms</div>
+      <div class="opp-p">Executed multi-channel paid campaigns across <strong>Meta Ads, Google Ads (Search, Shopping, PMax), LinkedIn,</strong> and Twitter. Expertise in campaign setup, targeting strategy, daily monitoring of CPL and CTR, negative keyword research to eliminate wasted spend, A/B creative testing, and bid adjustments based on performance drift. At Prosperr.io, managed campaigns daily — improving CTR from 2.5% → 4.0% and achieving 6%–12% conversion rates through continuous optimization. Generated 25–60 leads per campaign at ₹120–₹280 CPL.</div>
+      <div class="opp-chips">
+        <span class="chip">Meta Ads Manager</span>
+        <span class="chip">Google Ads</span>
+        <span class="chip">LinkedIn Campaign Manager</span>
+        <span class="chip">Performance Max</span>
+        <span class="chip">Shopping Ads</span>
+        <span class="chip">Search Ads</span>
+        <span class="chip">Negative Keywords</span>
+        <span class="chip">A/B Testing</span>
+        <span class="chip">Bid Optimization</span>
+        <span class="chip">Lead Gen Forms</span>
+        <span class="chip">Audience Segmentation</span>
+      </div>
+    </div>
+
+    <div class="opp-card reveal d2">
+      <div class="opp-num">02</div>
+      <div class="opp-cat">Analytics · GA4 &amp; Dashboards</div>
+      <div class="opp-h">Data analysis that drives action</div>
+      <div class="opp-p">Built and maintained GA4 dashboards tracking customer journeys across B2C and B2B segments. Identified funnel leakages and recommended optimization strategies improving downstream conversions. Created reports tracking CAC, CPL, CTR, and engagement metrics to guide growth decisions.</div>
+      <div class="opp-chips">
+        <span class="chip">GA4</span>
+        <span class="chip">Dashboard Creation</span>
+        <span class="chip">Funnel Analysis</span>
+        <span class="chip">CAC/CPL Tracking</span>
+        <span class="chip">Report Building</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Tableau</span>
+      </div>
+    </div>
+
+    <div class="opp-card reveal d3">
+      <div class="opp-num">03</div>
+      <div class="opp-cat">CRM &amp; Lifecycle</div>
+      <div class="opp-h">Multi-channel engagement</div>
+      <div class="opp-p">Executed CRM campaigns across WhatsApp, Email, and Push notifications for B2C & B2B cohorts. Improved engagement and renewal activity through strategic sequencing and channel selection. Collaborated with design and product teams for execution.</div>
+      <div class="opp-chips">
+        <span class="chip">Mailchimp</span>
+        <span class="chip">HubSpot</span>
+        <span class="chip">CRM Systems</span>
+        <span class="chip">WhatsApp</span>
+        <span class="chip">Email Marketing</span>
+        <span class="chip">Push Notifications</span>
+      </div>
+    </div>
+
+    <div class="opp-card reveal d4">
+      <div class="opp-num">04</div>
+      <div class="opp-cat">Content &amp; SEO</div>
+      <div class="opp-h">Organic growth foundations</div>
+      <div class="opp-p">Created SEO-optimized content with on-page and off-page optimization. Successfully indexed content via Google Search Console. Built community engagement on Reddit and Quora, implemented cross-posting strategies on LinkedIn and Twitter.</div>
+      <div class="opp-chips">
+        <span class="chip">On-Page SEO</span>
+        <span class="chip">Off-Page SEO</span>
+        <span class="chip">Google Search Console</span>
+        <span class="chip">Semrush</span>
+        <span class="chip">Content Strategy</span>
+      </div>
+    </div>
+
+    <div class="opp-card reveal d5">
+      <div class="opp-num">05</div>
+      <div class="opp-cat">Creative &amp; Strategy</div>
+      <div class="opp-h">Performance-driven design</div>
+      <div class="opp-p">Developed high-performing ad creatives across platforms. Created ad creative briefs, tested multiple formats, identified winning combinations. Proficient in Canva and Figma for rapid creative iteration.</div>
+      <div class="opp-chips">
+        <span class="chip">Canva</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Creative Testing</span>
+        <span class="chip">Ad Creative Development</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="proj-section">
+  <div class="s-tag reveal">Campaign Work</div>
+  <h2 class="s-title highlight reveal d1">FEATURED PROJECTS</h2>
+  
+  <!-- PROJECT 1: ELATED WARDROBE -->
+  <div class="proj-card reveal d1">
+    <div class="proj-n">01</div>
+    <div class="proj-cat">Google Ads · E-Commerce · Premium Fashion</div>
+    <div class="proj-h">Elated Wardrobe — Google Ads Performance Optimization</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Drive high-intent sales for premium pre-wedding gowns while filtering out low-intent traffic (inspiration seekers, cheap gown searches, wallpapers).</div>
+    
+    <div class="proj-section-title">Background</div>
+    <div class="proj-p">Elated Wardrobe is a premium fashion brand specializing in pre-wedding gowns. The client required a performance-first acquisition strategy to scale sales while maintaining traffic quality and reducing wasted ad spend.</div>
+    
+    <div class="proj-section-title">Strategy Framework</div>
+    <div class="proj-p">Implemented a <strong>4-phase Google Ads improvement model</strong> to systematically optimize campaign performance:</div>
+    
+    <div class="proj-section-title">Phase 1 — Broad → Exact Match Testing (Baseline Discovery)</div>
+    <div class="proj-p">Started with broad match to understand search volumes and user behavior. Early impressions were high, revealing overall demand patterns. Observed that broad match captured low-intent queries, which diluted CTR. Pivoted to exact match to focus on purchase-ready searches, refining targeting and improving traffic quality.</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">1,729</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">87,293</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">1.98%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹5.85</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+    </div>
+    <div class="proj-p"><strong>Insight:</strong> Using broad match for initial data gathering allowed for informed optimization. The shift to exact match demonstrates a test-and-learn mindset, balancing reach with high-intent traffic.</div>
+    
+    <div class="proj-section-title">Phase 2 — Phrase Match Expansion (Demand Amplification)</div>
+    <div class="proj-p">Expanded to broader pre-wedding gown queries. Increased ad relevance and scaled impressions. Tested multiple head terms for purchase intent.</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">261</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">6,977</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">3.74%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹11.09</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+    </div>
+    <div class="proj-p"><strong>Impact:</strong> CTR nearly doubled by capturing semantically relevant gown searches.</div>
+    
+    <div class="proj-section-title">Phase 3 — Phrase Match + Negative Keywords (Traffic Refinement)</div>
+    <div class="proj-p">Added negative keywords to filter low-intent queries:</div>
+    <ul class="proj-list">
+      <li>"pre wedding ideas / quotes / poses / photoshoot locations"</li>
+      <li>"free pre wedding dresses, wallpapers, HD images"</li>
+      <li>"dress rental cheap / rent under 500"</li>
+    </ul>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">815</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">22,743</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">3.58%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹12.31</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+    </div>
+    <div class="proj-p"><strong>Impact:</strong> Wasted impressions sharply reduced. Traffic quality improved. Google flagged "Limited by Budget" → indicating strong conversion potential.</div>
+    
+    <div class="proj-section-title">Final Results — Search Ads (1–28 Oct)</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">665</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">14,500</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">4.57%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹11.31</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+    </div>
+    <div class="proj-p"><strong>CTR Lift: 1.98% → 4.57% (130% increase)</strong></div>
+    
+    <div class="proj-section-title">Performance Max Campaign (1–26 Oct)</div>
+    <div class="proj-p">Delivered low-cost discovery traffic; AI-driven placements across YouTube, Display & Discover expanded top-of-funnel reach.</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">124</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">6,052</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹3.92</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">2.05%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+    </div>
+    
+    <div class="proj-section-title">Shopping Ads Campaign (1–26 Oct)</div>
+    <div class="proj-p">Generated 3,000+ high-intent product views; became the top-performing channel for conversion-ready traffic.</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">3,112</div>
+        <div class="proj-metric-label">Clicks</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">105,915</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹4.11</div>
+        <div class="proj-metric-label">Avg CPC</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">2.94%</div>
+        <div class="proj-metric-label">CTR</div>
+      </div>
+    </div>
+    <div class="proj-p"><strong>Status:</strong> Limited by Budget (indicating strong performance potential)</div>
+    
+    <div class="proj-section-title">Auction Insights Analysis</div>
+    <div class="proj-p">Conducted detailed competitive analysis benchmarking against Amazon.in and Myntra.com to identify opportunities:</div>
+    <ul class="proj-list">
+      <li><strong>Impression Share:</strong> All advertisers recorded &lt;10% due to extremely competitive keywords (wedding outfits/fashion)</li>
+      <li><strong>Competitor Overlap:</strong> Amazon 18.24%, Myntra 14.85% — competitors entering auctions more frequently</li>
+      <li><strong>Top of Page Rate:</strong> My campaign 44.14% (Amazon 78.93%, Myntra 83.09%)</li>
+      <li><strong>Absolute Top Position Rate:</strong> My campaign 31.64% (Amazon 20.57%, Myntra 22.05%) — <strong>Outranking major competitors in #1 placement</strong></li>
+      <li><strong>Low Outranking Share Against Me:</strong> Competitors only outranked me ~6% of the time</li>
+    </ul>
+    <div class="proj-p"><strong>Key Finding:</strong> Ad quality and relevance are excellent. The issue is visibility (auction entry), not performance. Recommended increasing budget on high-intent keywords and targeting long-tail keywords to increase visibility.</div>
+    
+    <div class="proj-section-title">Final Impact</div>
+    <ul class="proj-list">
+      <li>Google Ads CTR improved 1.98% → 4.57% (<strong>130% increase</strong>)</li>
+      <li>3,112 shopping clicks at ₹4.11 CPC</li>
+      <li>Reduced irrelevant impressions with advanced negative keywords</li>
+      <li>Performance Max lowered top-of-funnel CPC to ₹3.92</li>
+      <li>Identified strong product-level purchase intent</li>
+      <li>Positioned client for scalable sales growth</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Google Ads</span>
+      <span class="proj-pill">Search Campaigns</span>
+      <span class="proj-pill">Shopping Ads</span>
+      <span class="proj-pill">Performance Max</span>
+      <span class="proj-pill">Negative Keywords</span>
+      <span class="proj-pill">Match Type Optimization</span>
+      <span class="proj-pill">Auction Insights</span>
+      <span class="proj-pill">Competitor Benchmarking</span>
+      <span class="proj-pill">CTR Optimization</span>
+      <span class="proj-pill">Traffic Quality</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: NIDE META ADS -->
+  <div class="proj-card reveal d2">
+    <div class="proj-n">02</div>
+    <div class="proj-cat">Meta Ads · Education · Lead Generation</div>
+    <div class="proj-h">NIDE — Meta Lead Generation for PG Course</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Generate high-quality PG course leads at lowest cost.</div>
+    
+    <div class="proj-section-title">Background</div>
+    <div class="proj-p">NIDE required a lead generation strategy for their PG program. I designed a Meta Ads funnel focusing on acquisition efficiency and lead quality. Scope: Facebook & Instagram Lead Ads (PG Course only).</div>
+    
+    <div class="proj-section-title">Responsibilities</div>
+    <ul class="proj-list">
+      <li>Audience targeting & segmentation</li>
+      <li>Lead form optimization</li>
+      <li>Creative & copy strategy</li>
+      <li>Daily budget & CPL optimization</li>
+    </ul>
+    
+    <div class="proj-section-title">Strategy</div>
+    <div class="proj-p"><strong>Audience Targeting:</strong></div>
+    <ul class="proj-list">
+      <li>Students & fresh graduates</li>
+      <li>Career advancement seekers</li>
+      <li>Lookalike audiences of existing students</li>
+    </ul>
+    
+    <div class="proj-p"><strong>Lead Form Optimization:</strong></div>
+    <ul class="proj-list">
+      <li>Short, user-friendly forms</li>
+      <li>Clear value proposition</li>
+      <li>Strong CTA to increase completion</li>
+    </ul>
+    
+    <div class="proj-p"><strong>Creative & Copy Strategy:</strong></div>
+    <ul class="proj-list">
+      <li>High-engagement visuals</li>
+      <li>Course-benefit-focused messaging</li>
+      <li>Brand trust & credibility elements</li>
+    </ul>
+    
+    <div class="proj-section-title">Performance Metrics (5–26 Oct)</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">109</div>
+        <div class="proj-metric-label">Leads Generated</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹102.59</div>
+        <div class="proj-metric-label">Cost Per Lead</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">111,854</div>
+        <div class="proj-metric-label">Reach</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">214,232</div>
+        <div class="proj-metric-label">Impressions</div>
+      </div>
+    </div>
+    <div class="proj-p">Additional Results: 19 Inbox Leads | 18 Purchases (lead quality indicator)</div>
+    
+    <div class="proj-section-title">Final Impact</div>
+    <ul class="proj-list">
+      <li>Delivered 109 high-quality leads</li>
+      <li>Achieved ₹102.59 CPL — <strong>highly efficient for education sector</strong></li>
+      <li><strong>541% increase in lead volume</strong> during optimization period</li>
+      <li>High audience relevance & engagement</li>
+      <li>Enabled client to scale PG course admissions affordably</li>
+    </ul>
+    
+    <div class="proj-p"><strong>Meta Ads Approach:</strong> Used a creative-led testing approach to find the top-performing hooks, visuals, and formats that drove high CTR and efficient landing page views. I structured campaigns with Advantage+, interest targeting, and retargeting layers, then scaled the best-performing combinations using performance signals like CTR, CPC, and engagement rates.</div>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Meta Ads Manager</span>
+      <span class="proj-pill">Lead Gen Forms</span>
+      <span class="proj-pill">Audience Segmentation</span>
+      <span class="proj-pill">Lookalike Audiences</span>
+      <span class="proj-pill">A/B Testing</span>
+      <span class="proj-pill">Form Optimization</span>
+      <span class="proj-pill">Creative Testing</span>
+      <span class="proj-pill">Advantage+</span>
+      <span class="proj-pill">Interest Targeting</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: PROSPERR.IO GOOGLE & META -->
+  <div class="proj-card reveal d3">
+    <div class="proj-n">03</div>
+    <div class="proj-cat">Google & Meta Ads · Multi-Campaign · Prosperr.io</div>
+    <div class="proj-h">Search & Performance Max Campaigns — Prosperr.io</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Drive high-quality leads and optimize conversions for B2C & B2B audiences.</div>
+    
+    <div class="proj-section-title">Background</div>
+    <div class="proj-p">Managed campaigns with budgets of ₹3,000–₹10,000, targeting high-intent leads for Prosperr.io services. CTR and lead quality needed improvement.</div>
+    
+    <div class="proj-section-title">Actions Taken</div>
+    <ul class="proj-list">
+      <li>Executed Search and Performance Max campaigns, performing negative keyword research to reduce irrelevant traffic</li>
+      <li>Duplicated ads and tested with the same audience demographics to address creative fatigue</li>
+      <li>Experimented with different ad creatives and messaging strategies for better engagement</li>
+      <li>Ran campaigns aligned with Christmas, New Year, Pongal, Advance Tax, and TDS Return seasons</li>
+      <li>Built GA4 dashboards to track CTR, CPC, CPL, and conversions; flagged underperforming campaigns for optimization</li>
+    </ul>
+    
+    <div class="proj-section-title">Results</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">2.5% → 4.0%</div>
+        <div class="proj-metric-label">CTR Improvement</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">30–60</div>
+        <div class="proj-metric-label">Leads Per Campaign</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹130–₹260</div>
+        <div class="proj-metric-label">CPL Range</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">7%–12%</div>
+        <div class="proj-metric-label">Conversion Rates</div>
+      </div>
+    </div>
+    
+    <div class="proj-p">Successfully reduced wasted ad spend through systematic optimization and creative testing.</div>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Google Ads</span>
+      <span class="proj-pill">Performance Max</span>
+      <span class="proj-pill">Search Campaigns</span>
+      <span class="proj-pill">GA4</span>
+      <span class="proj-pill">Creative Testing</span>
+      <span class="proj-pill">Bid Optimization</span>
+      <span class="proj-pill">Audience Optimization</span>
+      <span class="proj-pill">Seasonal Campaigns</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 4: PROSPERR.IO META ADS -->
+  <div class="proj-card reveal d4">
+    <div class="proj-n">04</div>
+    <div class="proj-cat">Meta Ads · Lead Gen & Traffic · Prosperr.io</div>
+    <div class="proj-h">Meta Ads Lead Generation & Traffic Campaigns</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Scale lead acquisition and website engagement efficiently.</div>
+    
+    <div class="proj-section-title">Background</div>
+    <div class="proj-p">Managed campaigns with budgets of ₹3,000–₹10,000, targeting B2C & B2B users during high-intent periods.</div>
+    
+    <div class="proj-section-title">Actions Taken</div>
+    <ul class="proj-list">
+      <li>Executed Lead Gen and Traffic campaigns on Meta Ads</li>
+      <li>Duplicated and tested ads to prevent creative fatigue, experimenting with different content and messaging strategies</li>
+      <li>Targeted campaigns around Christmas, New Year, Pongal, Advance Tax, and TDS Returns</li>
+      <li>Optimized audience segmentation, ad creatives, and bid strategies based on GA4 insights</li>
+    </ul>
+    
+    <div class="proj-section-title">Results</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">₹120–₹280</div>
+        <div class="proj-metric-label">CPL Range</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">20–45</div>
+        <div class="proj-metric-label">Qualified Leads Per Campaign</div>
+      </div>
+    </div>
+    <div class="proj-p">CTR improved and conversions increased through creative and audience optimization strategies.</div>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Meta Ads</span>
+      <span class="proj-pill">Lead Generation</span>
+      <span class="proj-pill">Traffic Campaigns</span>
+      <span class="proj-pill">Audience Segmentation</span>
+      <span class="proj-pill">Creative Testing</span>
+      <span class="proj-pill">GA4</span>
+      <span class="proj-pill">CAC Optimization</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 5: PROSPERR.IO CRM -->
+  <div class="proj-card reveal d5">
+    <div class="proj-n">05</div>
+    <div class="proj-cat">CRM · Lifecycle Marketing · Prosperr.io</div>
+    <div class="proj-h">Multi-channel CRM & Lifecycle Campaigns</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Improve engagement, retention, and conversions across B2C & B2B cohorts.</div>
+    
+    <div class="proj-section-title">Background</div>
+    <div class="proj-p">Activated dormant users, drove referrals, and enhanced app adoption and repeat usage.</div>
+    
+    <div class="proj-section-title">Actions Taken</div>
+    <ul class="proj-list">
+      <li>Executed multi-channel lifecycle campaigns across WhatsApp, Email, and Push for active, dormant, renewal, and referral cohorts</li>
+      <li>Planned push notification calendars aligned with app launches, deadlines, and festive campaigns</li>
+      <li>Created and optimized email campaigns to drive awareness, adoption, and repeat usage</li>
+      <li>Monitored CAC, CPL, CTR, engagement, and conversion metrics to guide growth decisions</li>
+      <li>Identified funnel leakages and recommended optimizations in CTAs, messaging, and audience segmentation</li>
+      <li>Collaborated with design and product teams for smooth execution</li>
+    </ul>
+    
+    <div class="proj-section-title">Results</div>
+    <ul class="proj-list">
+      <li>Engagement, retention, and conversions improved across B2C & B2B cohorts</li>
+      <li>Funnel optimizations reduced CAC and improved overall ROI</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">CRM</span>
+      <span class="proj-pill">Email Marketing</span>
+      <span class="proj-pill">Push Marketing</span>
+      <span class="proj-pill">Lifecycle Campaigns</span>
+      <span class="proj-pill">Audience Segmentation</span>
+      <span class="proj-pill">GA4 Analytics</span>
+      <span class="proj-pill">Creative Optimization</span>
+      <span class="proj-pill">Cross-Functional Collaboration</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 6: GA4 ANALYTICS -->
+  <div class="proj-card reveal d6">
+    <div class="proj-n">06</div>
+    <div class="proj-cat">GA4 · Analytics · Prosperr.io</div>
+    <div class="proj-h">Funnel Analytics & GA4 Dashboard Management</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-p">Built and managed GA4 dashboards to track full customer journey across B2C and B2B audiences. Created reporting systems that surfaced campaign data at-a-glance — enabling team to identify performance without digging through raw numbers. Focused on identifying funnel leakages: specific drop-off points in user journey. Translated findings into concrete recommendations — adjusting campaign targeting, rethinking landing page flows, triggering re-engagement sequences. Connected data to decisions driving action rather than sitting in slide decks. Monitored CAC, CPL, CTR, and engagement metrics guiding growth decisions.</div>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">GA4</span>
+      <span class="proj-pill">Dashboard Creation</span>
+      <span class="proj-pill">Funnel Analysis</span>
+      <span class="proj-pill">B2C & B2B Tracking</span>
+      <span class="proj-pill">Conversion Optimization</span>
+      <span class="proj-pill">Report Building</span>
+      <span class="proj-pill">Data Visualization</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 7: INSTAGRAM -->
+  <div class="proj-card reveal d1">
+    <div class="proj-n">07</div>
+    <div class="proj-cat">Instagram · Organic Content Strategy</div>
+    <div class="proj-h">AI Marketing Demo — Instagram Content Ecosystem</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Objective</div>
+    <div class="proj-p">Build an educational content ecosystem showcasing AI + marketing expertise while testing content formats that drive reach, saves, and engagement.</div>
+    
+    <div class="proj-section-title">Content Created</div>
+    <ul class="proj-list">
+      <li><strong>Instagram Reel</strong> — "5 AI Tools Every Marketer Should Know": Fast, practical, actionable content encouraging saves. Used hooks like "Stop wasting hours…" to increase watch time. Hashtags targeted marketers & creators.</li>
+      <li><strong>Carousel Post 1</strong> — "AI for Social Media Growth": Simple headlines showing how AI supports planning, analyzing, and scaling content. Ended with strong CTA.</li>
+      <li><strong>Instagram Story</strong> — "Which AI Marketing Tool Is Easier?": Interactive comparison question (Canva vs ChatGPT) to increase retention and drive CTA clicks.</li>
+      <li><strong>Carousel Post 2</strong> — "AI Tools Every Marketer Needs": Value-heavy, swipeable content. Each slide highlighted 1 tool for easy reading.</li>
+    </ul>
+    
+    <div class="proj-section-title">Performance Based on IG Insights</div>
+    <div class="proj-metrics">
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">148</div>
+        <div class="proj-metric-label">Total Views</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">107</div>
+        <div class="proj-metric-label">Accounts Reached</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">96.6%</div>
+        <div class="proj-metric-label">Reach via Reels</div>
+      </div>
+      <div class="proj-metric-item">
+        <div class="proj-metric-num">112</div>
+        <div class="proj-metric-label">Top Reel Views</div>
+      </div>
+    </div>
+    
+    <div class="proj-section-title">Key Takeaways</div>
+    <ul class="proj-list">
+      <li>Reels delivered the highest reach (96.6%), validating video-first strategy</li>
+      <li>Educational content formats drove the strongest engagement indicators</li>
+      <li>Carousels built authority while encouraging saves & shares</li>
+      <li>Story format helped test interactive behavior & CTA performance</li>
+      <li>Clear proof of understanding content psychology, UX, and algorithm behavior</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Instagram</span>
+      <span class="proj-pill">Reels</span>
+      <span class="proj-pill">Carousels</span>
+      <span class="proj-pill">Stories</span>
+      <span class="proj-pill">Content Strategy</span>
+      <span class="proj-pill">Scriptwriting</span>
+      <span class="proj-pill">Hashtag Research</span>
+      <span class="proj-pill">Engagement Strategy</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 8: LINKEDIN -->
+  <div class="proj-card reveal d2">
+    <div class="proj-n">08</div>
+    <div class="proj-cat">LinkedIn · B2B Lead Gen · Demo</div>
+    <div class="proj-h">GrowthQi — LinkedIn Lead Generation Campaign</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Overview</div>
+    <div class="proj-p">Created a complete LinkedIn Ads Lead Generation campaign for demo brand GrowthQi to demonstrate B2B targeting, lead form creation, compliance setup, and professional ad structuring.</div>
+    
+    <div class="proj-section-title">Campaign Objective</div>
+    <div class="proj-p">Lead Generation — chosen because it aligns with B2B intent, LinkedIn Lead Gen Forms improve conversion rates, and it's ideal for capturing qualified professionals.</div>
+    
+    <div class="proj-section-title">Audience Targeting Strategy</div>
+    <div class="proj-p"><strong>Target Location:</strong> India</div>
+    <div class="proj-p"><strong>Job Titles:</strong> Founder, Co-Founder, Marketing Manager, Head of Growth, Business Development Lead, E-commerce Manager</div>
+    <div class="proj-p"><strong>Industries:</strong> E-commerce, Tech Startups, Retail, Consulting</div>
+    <div class="proj-p"><strong>Interests:</strong> Digital Marketing, Growth Strategy, Lead Generation, Advertising Technologies</div>
+    
+    <div class="proj-section-title">Ad Setup</div>
+    <ul class="proj-list">
+      <li>Single Image Ad with LinkedIn Lead Gen Form</li>
+      <li>Optimized form fields: Name, Email, Job Title, Company Name, Consent/Privacy checkbox</li>
+      <li>Created custom privacy policy page for full LinkedIn compliance</li>
+    </ul>
+    
+    <div class="proj-section-title">Skills Demonstrated</div>
+    <ul class="proj-list">
+      <li>Campaign objective planning (Lead Gen + Website Visits)</li>
+      <li>Audience targeting and segmentation (Job titles, industries, company size)</li>
+      <li>Ad copywriting & CTA creation</li>
+      <li>Lead Gen Form setup including privacy policy compliance</li>
+      <li>Understanding ad metrics (Impressions, CTR, CPC)</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">LinkedIn Ads</span>
+      <span class="proj-pill">B2B Targeting</span>
+      <span class="proj-pill">Lead Gen Forms</span>
+      <span class="proj-pill">Compliance Setup</span>
+      <span class="proj-pill">Privacy Policy</span>
+      <span class="proj-pill">Professional Copywriting</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 9: EMAIL MARKETING -->
+  <div class="proj-card reveal d3">
+    <div class="proj-n">09</div>
+    <div class="proj-cat">Email Marketing · Mailchimp · CRM</div>
+    <div class="proj-h">AI Marketing Email Sequences — Mailchimp</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Project Overview</div>
+    <div class="proj-p">Created and analyzed two email campaigns inside the Mailchimp Demo Environment to demonstrate ability to build marketing emails from scratch, structure welcome + follow-up sequences, analyze performance, and apply email-marketing best practices.</div>
+    
+    <div class="proj-section-title">Campaigns Created</div>
+    <div class="proj-p"><strong>1. "AI Marketing Demo – Welcome Newsletter"</strong></div>
+    <ul class="proj-list">
+      <li>Status: Sent to 12 contacts</li>
+      <li>Open Rate: 50%</li>
+      <li>Click Rate: 0%</li>
+      <li>Included: Personalized greeting, introduction to AI marketing tools, download link/CTA, footer with privacy policy</li>
+    </ul>
+    
+    <div class="proj-p"><strong>2. "Your First Steps Into AI Marketing"</strong></div>
+    <ul class="proj-list">
+      <li>Status: Sent to 2 contacts</li>
+      <li>Open Rate: 50%</li>
+      <li>Click Rate: 50%</li>
+      <li>Included: Quick tips for using AI tools, actionable advice, CTA to visit demo website</li>
+    </ul>
+    
+    <div class="proj-section-title">Key Learnings</div>
+    <ul class="proj-list">
+      <li>Value-rich emails perform better than introductory emails</li>
+      <li>CTA placement + wording directly impact click-through rates</li>
+      <li>Micro-audiences are excellent for testing deliverability before scaling</li>
+      <li>50% open rate shows strong subject-line and sender-name relevance</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Mailchimp</span>
+      <span class="proj-pill">Email Marketing</span>
+      <span class="proj-pill">Copywriting</span>
+      <span class="proj-pill">Automation</span>
+      <span class="proj-pill">CTA Design</span>
+      <span class="proj-pill">Performance Analysis</span>
+      <span class="proj-pill">Audience Segmentation</span>
+    </div>
+  </div>
+
+  <!-- PROJECT 10: WEBSITE DESIGN -->
+  <div class="proj-card reveal d4">
+    <div class="proj-n">10</div>
+    <div class="proj-cat">Web Design · Canva · UX</div>
+    <div class="proj-h">AI Marketing Demo Website — Canva Design</div>
+    <div class="proj-divider"></div>
+    
+    <div class="proj-section-title">Project Overview</div>
+    <div class="proj-p">One-page concept site designed to showcase how AI can be used to enhance modern marketing strategies. Goal: create a clean, professional, and visually appealing webpage that effectively communicates AI-driven marketing features.</div>
+    
+    <div class="proj-section-title">Objective</div>
+    <ul class="proj-list">
+      <li>Create a minimalist one-page website suitable for portfolio presentation</li>
+      <li>Highlight AI marketing features using clear visual hierarchy</li>
+      <li>Keep the content concise, clean, and easy to understand</li>
+      <li>Use Canva to produce a fast, professional layout</li>
+    </ul>
+    
+    <div class="proj-section-title">Process & Implementation</div>
+    <div class="proj-p"><strong>1. Content Planning:</strong> Outlined hero message, AI marketing features, short explanatory text section, and closing/footer.</div>
+    <div class="proj-p"><strong>2. Visual Design:</strong> Selected modern template with soft blue color palette for tech-focused tone, clean fonts for readability, balanced spacing and minimal graphics.</div>
+    <div class="proj-p"><strong>3. Section Breakdown:</strong> Bold headline "Smarter Marketing. Powered by AI." paired with feature cards explaining AI marketing benefits.</div>
+    
+    <div class="proj-section-title">Key Skills Demonstrated</div>
+    <ul class="proj-list">
+      <li>Visual design</li>
+      <li>Layout composition</li>
+      <li>Content structuring</li>
+      <li>Branding consistency</li>
+      <li>Canva website creation</li>
+      <li>Minimalist UX thinking</li>
+    </ul>
+    
+    <div class="proj-pills">
+      <span class="proj-pill">Canva</span>
+      <span class="proj-pill">Web Design</span>
+      <span class="proj-pill">Landing Page</span>
+      <span class="proj-pill">Visual Design</span>
+      <span class="proj-pill">UX</span>
+      <span class="proj-pill">Layout Design</span>
+      <span class="proj-pill">CRO Thinking</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- METRICS BAND -->
+<div class="metrics">
+  <div class="metrics-grid">
+    <div class="metric-box">
+      <div class="metric-num">130%</div>
+      <div class="metric-label">CTR Improvement · Google Ads</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">541%</div>
+      <div class="metric-label">Lead Volume Increase · Meta</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">6-12%</div>
+      <div class="metric-label">Conversion Rates Achieved</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">10</div>
+      <div class="metric-label">Projects Executed</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="s-tag reveal">Arsenal</div>
+  <h2 class="s-title reveal d1">TOOLS &amp;<br>SKILLS</h2>
+  <div class="skills-wrap">
+    <div class="skills-intro reveal-left d2">
+      <p>Every tool listed here is something I've used in real projects or campaigns — not padded for optics. I believe in depth over breadth, so I've prioritized what matters most in performance marketing.</p>
+      <p>My strongest zone is <strong>paid advertising and analytics</strong> — that's where I spend the most time and see the clearest results. Everything else supports that core.</p>
+      <p>Actively deepening: <strong>AI-powered ad optimization, advanced GA4 configurations, and multi-touch attribution modeling.</strong></p>
+    </div>
+    <div class="skills-groups reveal-right d3">
+      <div>
+        <div class="sg-label">Paid Advertising · Core</div>
+        <div class="sg-pills">
+          <span class="sk-pill">Google Ads (Search)</span>
+          <span class="sk-pill">Google Shopping</span>
+          <span class="sk-pill">Performance Max</span>
+          <span class="sk-pill">Google Display</span>
+          <span class="sk-pill">Meta Ads Manager</span>
+          <span class="sk-pill">LinkedIn Campaign Manager</span>
+          <span class="sk-pill">Twitter Ads</span>
+          <span class="sk-pill">Lead Gen Forms</span>
+          <span class="sk-pill">A/B Testing</span>
+          <span class="sk-pill">Negative Keywords</span>
+          <span class="sk-pill">Bid Optimization</span>
+          <span class="sk-pill">Audience Segmentation</span>
+          <span class="sk-pill">Campaign Scaling</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Analytics · Measurement</div>
+        <div class="sg-pills">
+          <span class="sk-pill">GA4</span>
+          <span class="sk-pill">Google Search Console</span>
+          <span class="sk-pill">Power BI</span>
+          <span class="sk-pill">Tableau</span>
+          <span class="sk-pill">Excel / Sheets</span>
+          <span class="sk-pill">Funnel Analysis</span>
+          <span class="sk-pill">CAC/CPL Tracking</span>
+          <span class="sk-pill">Dashboard Building</span>
+          <span class="sk-pill">Report Writing</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">SEO · Content · CRM</div>
+        <div class="sg-pills">
+          <span class="sk-pill">On-Page SEO</span>
+          <span class="sk-pill">Off-Page SEO</span>
+          <span class="sk-pill">SEO Indexing</span>
+          <span class="sk-pill">Semrush</span>
+          <span class="sk-pill">Blog Writing</span>
+          <span class="sk-pill">Reddit &amp; Quora</span>
+          <span class="sk-pill">Mailchimp</span>
+          <span class="sk-pill">HubSpot</span>
+          <span class="sk-pill">CRM Systems</span>
+          <span class="sk-pill">Email Campaigns</span>
+          <span class="sk-pill">Cross-Posting</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Creative · Design · AI</div>
+        <div class="sg-pills">
+          <span class="sk-pill">Canva</span>
+          <span class="sk-pill">Figma</span>
+          <span class="sk-pill">Ad Creative Development</span>
+          <span class="sk-pill">AI Tools</span>
+          <span class="sk-pill">Generative AI</span>
+          <span class="sk-pill">Creative Briefing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" class="cert-section">
+  <div class="s-tag reveal">Credentials</div>
+  <h2 class="s-title reveal d1">CERTIFICATIONS</h2>
+  <div class="cert-grid">
+    <div class="cert-card reveal d1">
+      <div class="cert-ico">🎯</div>
+      <div class="cert-name">Google Ads Search Certification</div>
+      <div class="cert-by">Google</div>
+    </div>
+    <div class="cert-card reveal d2">
+      <div class="cert-ico">🛒</div>
+      <div class="cert-name">AI-Powered Shopping Ads Certification</div>
+      <div class="cert-by">Google</div>
+    </div>
+    <div class="cert-card reveal d3">
+      <div class="cert-ico">⚡</div>
+      <div class="cert-name">AI-Powered Performance Ads Certification</div>
+      <div class="cert-by">Google</div>
+    </div>
+    <div class="cert-card reveal d4">
+      <div class="cert-ico">📺</div>
+      <div class="cert-name">Google Ads Display Certification</div>
+      <div class="cert-by">Google</div>
+    </div>
+    <div class="cert-card reveal d1">
+      <div class="cert-ico">📱</div>
+      <div class="cert-name">Social Media Marketing Certification</div>
+      <div class="cert-by">HubSpot Academy</div>
+    </div>
+    <div class="cert-card reveal d2">
+      <div class="cert-ico">📣</div>
+      <div class="cert-name">Digital Advertising Certification</div>
+      <div class="cert-by">HubSpot Academy</div>
+    </div>
+    <div class="cert-card reveal d3">
+      <div class="cert-ico">✉️</div>
+      <div class="cert-name">Email Marketing Certification</div>
+      <div class="cert-by">HubSpot Academy</div>
+    </div>
+    <div class="cert-card reveal d4">
+      <div class="cert-ico">🤖</div>
+      <div class="cert-name">Generative AI Mastermind</div>
+      <div class="cert-by">Advanced AI Course</div>
+    </div>
+    <div class="cert-card reveal d1">
+      <div class="cert-ico">🔧</div>
+      <div class="cert-name">AI Tools Workshop</div>
+      <div class="cert-by">Professional Development</div>
+    </div>
+    <div class="cert-card reveal d2">
+      <div class="cert-ico">📈</div>
+      <div class="cert-name">12-Week Advanced Digital Marketing</div>
+      <div class="cert-by">Professional Training · 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="edu-section">
+  <div class="s-tag reveal">Academic Background</div>
+  <h2 class="s-title reveal d1">EDUCATION</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal d1">
+      <div class="edu-ico">🎓</div>
+      <div class="edu-degree">Post-Graduation — Digital Marketing with Generative AI</div>
+      <div class="edu-school">NIDE – Affiliated with Jain University (JAIN), Bengaluru</div>
+      <div class="edu-years">2025 – 2026</div>
+    </div>
+    <div class="edu-card reveal d2">
+      <div class="edu-ico">🏛️</div>
+      <div class="edu-degree">Bachelor of Business Administration — Business Analytics</div>
+      <div class="edu-school">Mount Carmel College, Bengaluru</div>
+      <div class="edu-years">2021 – 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="s-tag reveal" style="justify-content:center">Get In Touch</div>
+  <h2 class="s-title reveal d1" style="margin-bottom:24px">LET'S<br><span style="-webkit-text-stroke:1.5px rgba(26,26,46,.2);-webkit-text-fill-color:transparent">CONNECT</span></h2>
+  <p class="contact-sub reveal d2">Open to Performance Marketing roles — fresher-friendly, growth-focused teams</p>
+  <div class="contact-links reveal d3">
+    <a href="mailto:mehrrao2409@gmail.com" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      mehrrao2409@gmail.com
+    </a>
+    <a href="tel:+916364661359" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      +91 6364661359
+    </a>
+    <a href="https://www.linkedin.com/in/mehr-rao-ghatkari/" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://drive.google.com/file/d/1LjYjxSweslTtHoJmPBVLrDkv1g6Biqaw/view?usp=drivesdk" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+      Download Resume
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-l">© 2025 Mehr Rao Ghatkari · Performance Marketing</span>
+  <span class="foot-r">BENGALURU · INDIA</span>
+</footer>
+
+
+
+<script>
+// CURSOR
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+(function animRing() {
+  rx += (mx - rx) * .12; ry += (my - ry) * .12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.a-card,.opp-card,.proj-card,.cert-card,.sk-pill,.chip').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.classList.add('big'); ring.classList.add('big'); });
+  el.addEventListener('mouseleave', () => { cur.classList.remove('big'); ring.classList.remove('big'); });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// SCROLL REVEAL
+const jsLoaded = document.body.classList.add('js-loaded');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>
